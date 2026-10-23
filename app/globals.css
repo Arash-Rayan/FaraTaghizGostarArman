@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-vazirmatn), "Vazirmatn", ui-sans-serif, system-ui,
+    sans-serif;
+  --color-ink: #070d18;
+  --color-ink-soft: #0b1528;
+  --color-accent: #7c5cff;
+  --color-accent-soft: #b7a8ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #070d18;
+  color: #eef3ff;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.35);
+  color: #fff;
+}
+
+.site-shell {
+  background:
+    radial-gradient(1200px 500px at 20% 0%, rgba(90, 70, 180, 0.16), transparent 55%),
+    radial-gradient(900px 420px at 100% 20%, rgba(40, 90, 150, 0.12), transparent 50%),
+    #070d18;
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(16, 27, 48, 0.88), rgba(10, 18, 34, 0.92));
+  border: 1px solid rgba(160, 185, 230, 0.14);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.purple-btn {
+  background: linear-gradient(180deg, #8b74ff 0%, #6b4dff 100%);
+  box-shadow: 0 10px 28px rgba(108, 77, 255, 0.32);
+}
+
+.purple-btn:hover {
+  filter: brightness(1.08);
+}
+
+.mountain-footer {
+  position: relative;
+  background:
+    linear-gradient(to top, rgba(7, 13, 24, 0.2), rgba(7, 13, 24, 0.78) 48%, #070d18),
+    linear-gradient(180deg, #15243d 0%, #1a2740 40%, #0b1220 100%);
+}
+
+.mountain-footer::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 180px;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 20% 120%, #1d334f 0%, transparent 55%),
+    radial-gradient(90% 80% at 55% 130%, #243a55 0%, transparent 50%),
+    radial-gradient(110% 90% at 85% 125%, #182a41 0%, transparent 52%);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
