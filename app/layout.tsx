@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
+import "@fontsource-variable/vazirmatn/wght.css";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { company } from "@/data/site";
 import "./globals.css";
-
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-vazirmatn",
-  preload: true,
-});
 
 export const metadata: Metadata = {
   title: {
@@ -40,11 +32,10 @@ export default function RootLayout({
     <html
       lang="fa"
       dir="rtl"
-      className={vazirmatn.variable}
       style={{ backgroundColor: "#070d18", color: "#eef3ff" }}
     >
       <body
-        className={`${vazirmatn.className} antialiased`}
+        className="antialiased"
         style={{ backgroundColor: "#070d18", color: "#eef3ff", margin: 0 }}
       >
         <style dangerouslySetInnerHTML={{ __html: criticalCss }} />

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-vazirmatn), "Vazirmatn", ui-sans-serif, system-ui,
+  --font-sans: "Vazirmatn Variable", "Vazirmatn", ui-sans-serif, system-ui,
     sans-serif;
   --color-ink: #070d18;
   --color-ink-soft: #0b1528;
