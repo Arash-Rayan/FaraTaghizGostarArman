@@ -15,6 +15,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -22,12 +23,19 @@ export function SiteHeader() {
     setQuery("");
   }, [pathname]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-[#070d18]/78 backdrop-blur-xl">
-      <div className="mx-auto flex h-[78px] max-w-[1280px] items-center justify-between gap-4 px-5 lg:px-8">
+    <header className={cn("site-header", scrolled && "is-scrolled")}>
+      <div className="site-header__bar">
         <Logo />
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="site-header__nav" aria-label="منوی اصلی">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
@@ -38,51 +46,40 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={cn(
-                  "relative px-3.5 py-2 text-[14.5px] transition",
-                  isActive
-                    ? "font-semibold text-white"
-                    : "text-slate-300 hover:text-white",
-                )}
+                className={cn("site-header__link", isActive && "is-active")}
+                aria-current={isActive ? "page" : undefined}
               >
                 {link.label}
-                {isActive && (
-                  <span className="absolute inset-x-3 -bottom-[2px] h-px bg-violet-300" />
-                )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="site-header__actions">
           <button
             type="button"
             onClick={() => setSearchOpen((value) => !value)}
-            className="grid h-10 w-10 place-items-center rounded-full text-slate-300 transition hover:bg-white/5 hover:text-white"
+            className="site-header__icon"
             aria-label="جستجو"
+            aria-expanded={searchOpen}
           >
             <Search size={18} />
           </button>
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-300 sm:flex">
-            FA
-            <span className="text-slate-500">▾</span>
-          </div>
-          <Link
-            href="/contact"
-            className="purple-btn hidden rounded-full px-5 py-2.5 text-sm font-semibold text-white sm:inline-flex"
-          >
+          <Link href="/contact" className="brand-btn site-header__cta">
             دریافت قیمت
           </Link>
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center rounded-full text-white lg:hidden"
+            className="site-header__icon site-header__menu"
             onClick={() => setMenuOpen((value) => !value)}
             aria-label="منو"
+            aria-expanded={menuOpen}
           >
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
+      <div className="site-header__accent" aria-hidden />
 
       {searchOpen && (
         <SearchPanel query={query} onQueryChange={setQuery} />

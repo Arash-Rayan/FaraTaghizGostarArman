@@ -43,23 +43,31 @@ export function HeroSection() {
 
       <Container className="relative grid min-h-[640px] items-center py-16 lg:min-h-[720px] lg:grid-cols-[1.05fr_0.95fr] lg:py-10">
         <div className="relative z-10 max-w-xl">
-          <p className="mb-5 text-[12px] font-semibold tracking-[0.22em] text-cyan-200/90">
-            اتوماسیون هوشمند. بهره‌وری بالاتر.
-          </p>
           <h1 className="text-[34px] font-extrabold leading-[1.25] text-white sm:text-[46px]">
-            تابلوهای برق صنعتی،
+            مهندسی اتوماسیون صنعتی
             <br />
-            <span className="text-[#b7a8ff]">اتوماسیون و ابزار دقیق</span>
+            <span className="text-[#b7a8ff]">و هوش مصنوعی</span>
           </h1>
-          <p className="mt-6 max-w-md text-[15px] leading-8 text-slate-300">
-            فرا تجهیز گستر آرمان (FTG) طراحی و ساخت تابلو برق، اتوماسیون صنعتی،
-            ابزار دقیق، برنامه‌نویسی PLC و HMI، تنظیم درایو و اجرای شبکه‌های
-            صنعتی را از مهندسی تا راه‌اندازی انجام می‌دهد.
+          <p className="mt-5 text-[16px] font-bold leading-8 text-cyan-200/90">
+            از طراحی و ساخت تجهیزات صنعتی تا توسعه سامانه‌های هوشمند
+          </p>
+          <p className="mt-4 max-w-lg text-[15px] leading-8 text-slate-300">
+            فرا تجهیز گستر آرمان (FTGA)، ارائه‌دهنده راهکارهای مهندسی در حوزه
+            اتوماسیون صنعتی، طراحی و ساخت ماشین‌آلات تخصصی و تجهیزات آزمایشگاهی،
+            و توسعه فناوری‌های هوش مصنوعی است.
+          </p>
+          <p className="mt-3 max-w-lg text-[15px] leading-8 text-slate-300">
+            ما با تلفیق تخصص در برق و ابزار دقیق، PLC و HMI، شبکه‌های صنعتی،
+            بینایی ماشین و مدل‌های زبانی بزرگ (LLM)، راهکارهایی جامع از طراحی و
+            ساخت تا پیاده‌سازی و راه‌اندازی ارائه می‌دهیم.
+          </p>
+          <p className="mt-4 text-[15px] font-bold text-white">
+            FTGA؛ مهندسی، فناوری و نوآوری صنعتی.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <Button href="/services">خدمات ما</Button>
-            <Button href="/projects" variant="ghost">
-              مشاهده پروژه‌ها
+            <Button href="/projects">پروژه‌ها</Button>
+            <Button href="/contact" variant="ghost">
+              تماس با ما
             </Button>
           </div>
         </div>

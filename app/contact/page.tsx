@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ContactAside } from "@/components/contact/ContactAside";
-import { ContactForm } from "@/components/contact/ContactForm";
 import { Container } from "@/components/ui/Container";
 import { PageIntro } from "@/components/ui/PageIntro";
 
@@ -15,12 +14,11 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="تماس با ما"
         title="درخواست قیمت و مشاوره فنی"
-        description="برای طراحی تابلو، اتوماسیون، ابزار دقیق یا استعلام PLC و HMI فرم را پر کنید. این نسخه فرانت‌اند است و پیام‌ها در همین صفحه تأیید می‌شوند."
+        description="برای طراحی تابلو، اتوماسیون، ابزار دقیق، استعلام PLC و HMI یا راهکارهای هوشمند، مستقیماً با کارشناس مربوط تماس بگیرید یا به ایمیل ما پیام دهید."
       />
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <div style={{ marginTop: 40, maxWidth: 720 }}>
         <ContactAside />
-        <ContactForm />
       </div>
     </Container>
   );

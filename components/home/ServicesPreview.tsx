@@ -23,10 +23,10 @@ export function ServicesPreview() {
             برنامه‌نویسی، راه‌اندازی و پشتیبانی مستمر.
           </p>
           <Link
-            href="/services"
+            href="/projects"
             className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-violet-300 hover:text-white"
           >
-            مشاهده همه خدمات
+            مشاهده همه پروژه‌ها
             <ArrowLeft size={15} />
           </Link>
         </div>
@@ -35,7 +35,7 @@ export function ServicesPreview() {
           {services.map((service) => (
             <Link
               key={service.id}
-              href="/services"
+              href="/projects"
               className="group overflow-hidden rounded-[22px] border border-white/8"
             >
               <CoverFrame height={230} className="min-h-[230px]">

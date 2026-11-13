@@ -12,22 +12,31 @@ import type {
 
 export const company: CompanyInfo = {
   nameFa: "فرا تجهیز گستر آرمان",
-  nameEn: "FTG",
+  nameEn: "FTGA",
   tagline: "برق صنعتی، اتوماسیون و ابزار دقیق",
-  phone: "۰۹۱۳ ۴۰۳ ۰۲۷۲",
-  mobile: "۰۹۱۳ ۷۸۳ ۸۴۰۰",
-  email: "info@ftg.ir",
-  address: "ایران",
+  phone: "۰۹۱۳ ۶۰۳ ۸۰۵۵",
+  email: "ftgagroup.my@gmail.com",
   contacts: [
-    { name: "مهندس حسن‌پور", phone: "۰۹۱۳ ۴۰۳ ۰۲۷۲" },
-    { name: "مهندس مشهدی", phone: "۰۹۱۳ ۷۸۳ ۸۴۰۰" },
+    {
+      name: "مهندس حسن‌پور",
+      role: "برق صنعتی، اتوماسیون و ابزار دقیق",
+      phone: "۰۹۱۳ ۴۰۳ ۰۲۷۲",
+    },
+    {
+      name: "مهندس مشهدی",
+      role: "برق صنعتی، اتوماسیون و ابزار دقیق",
+      phone: "۰۹۱۳ ۷۸۳ ۸۴۰۰",
+    },
+    {
+      name: "مهندس رایان",
+      role: "یادگیری ماشین، بینایی کامپیوتر و اتوماسیون با ایجنت‌ها",
+      phone: "۰۹۱۳ ۶۰۳ ۸۰۵۵",
+    },
   ],
 };
 
 export const navLinks: NavLink[] = [
   { href: "/", label: "خانه" },
-  { href: "/services", label: "خدمات" },
-  { href: "/products", label: "محصولات" },
   { href: "/projects", label: "پروژه‌ها" },
   { href: "/about", label: "درباره ما" },
   { href: "/contact", label: "تماس با ما" },
@@ -67,7 +76,7 @@ export const services: ServiceItem[] = [
     number: "01",
     title: "تجهیزات آزمایشگاهی و ماشین مخصوص",
     text: "طراحی و ساخت تجهیزات آزمایشگاهی، دستگاه‌های لایف‌تست و ماشین‌های مخصوص صنعتی.",
-    image: "/images/product-hmi.jpg",
+    image: "/images/service-lab-equipment.jpg",
     imagePos: "center",
     details: [
       "دستگاه تست پارامترهای الکتریکی (ولتاژ، جریان، توان و ...)",
@@ -98,6 +107,7 @@ export const services: ServiceItem[] = [
     image: "/images/service-automation.jpg",
     imagePos: "center",
     details: [
+      "انتخاب و نصب سنسورهای فشار، دما، فلو و TDS",
       "برنامه‌نویسی انواع PLC و موشن کنترلر",
       "طراحی صفحات HMI، WinCC و مانیتورینگ",
       "تنظیم و پارامتردهی انواع درایو",
@@ -109,10 +119,9 @@ export const services: ServiceItem[] = [
     number: "04",
     title: "ابزار دقیق و شبکه صنعتی",
     text: "مشاوره در برق، ابزار دقیق و اجرای شبکه‌های صنعتی برای هوشمندسازی فرآیند.",
-    image: "/images/service-instrument.jpg",
+    image: "/images/service-instrument-network.jpg",
     imagePos: "center",
     details: [
-      "انتخاب و نصب سنسورهای فشار، دما، فلو و TDS",
       "ثبت داده برای تحلیل و گزارش‌گیری",
       "طراحی و اجرای شبکه صنعتی",
       "پایش انرژی پست برق و دیزل ژنراتور",
@@ -143,7 +152,7 @@ export const products: ProductItem[] = [
   {
     id: "panel-industrial",
     name: "تابلو برق صنعتی",
-    brand: "FTG",
+    brand: "FTGA",
     category: "panel",
     featured: true,
     text: "طراحی و ساخت تابلو قدرت، کنترل و اتوماسیون مطابق نیاز پروژه",
@@ -203,7 +212,7 @@ export const products: ProductItem[] = [
   {
     id: "panel-mcc",
     name: "تابلو درایو و MCC",
-    brand: "FTG",
+    brand: "FTGA",
     category: "panel",
     featured: false,
     text: "تابلوهای چندخانه‌ای قدرت، درایو و توزیع برای خطوط سنگین",
@@ -222,35 +231,13 @@ export const products: ProductItem[] = [
   },
 ];
 
-export const projects: ProjectItem[] = [
-  {
-    id: "electrical-test",
-    title: "دستگاه تست پارامترهای الکتریکی",
-    industry: "تجهیزات آزمایشگاهی",
-    text: "اندازه‌گیری ولتاژ، جریان و توان با ثبت داده، تست مرحله‌ای و امکان اتصال به شبکه.",
-    image: "/images/project-electrical-test.jpg",
-    highlights: [
-      "ثبت داده جهت تحلیل",
-      "تأیید یا رد مراحل تست",
-      "تنظیم زمان و پارامترهای انتخابی",
-    ],
-  },
-  {
-    id: "ro-automation",
-    title: "اتوماسیون واحد RO",
-    industry: "آب و تصفیه",
-    text: "نصب PLC، HMI و سنسورهای ابزار دقیق برای اتوماتیک‌سازی پروسه و کاهش مصرف آب.",
-    image: "/images/project-ro.jpg",
-    highlights: [
-      "ثبت مصرف آب شور/شیرین، فشار و TDS",
-      "آلارم‌دهی برنامه‌ریزی‌شده",
-      "بک‌واش منظم و افزایش عمر فیلتر",
-    ],
-  },
+/** پروژه‌های اجراشده — بدون تکرار با حوزه‌های تخصصی و راه‌حل‌های عمومی */
+const caseProjects: ProjectItem[] = [
   {
     id: "yaskawa-robots",
     title: "نصب و راه‌اندازی ربات یاسکاوا",
     industry: "رباتیک صنعتی",
+    featured: true,
     text: "نصب ربات‌های صنعتی یاسکاوا، تیچ موقعیت‌ها و اتصال به دستگاه‌های خط تولید.",
     image: "/images/project-robot.jpg",
     highlights: [
@@ -271,6 +258,7 @@ export const projects: ProjectItem[] = [
     id: "mehr-bistoon",
     title: "تابلو برق و کنترل مهر بیستون",
     industry: "خوراک دام",
+    featured: true,
     text: "طراحی و ساخت تابلو، کابل‌کشی، تست I/O، برنامه‌نویسی PLC و صفحات WinCC-TIA.",
     image: "/images/project-mehr-hmi.jpg",
     highlights: [
@@ -286,20 +274,6 @@ export const projects: ProjectItem[] = [
     text: "طراحی تابلو برق و کنترل، برنامه‌نویسی PLC و به‌روزرسانی اتوماسیون ماشین‌های مخصوص.",
     image: "/images/project-patleh.jpg",
     highlights: ["نصب PLC و HMI", "تست I/O", "به‌روزرسانی فرز، ساب و تراش"],
-  },
-  {
-    id: "lab-pressure",
-    title: "دستگاه‌های تست پرشر سوئیچ",
-    industry: "آزمایشگاهی",
-    text: "طراحی و ساخت دستگاه تست پرشر سوئیچ با دقت ۱۰ پاسکال و لایف‌تست تا ۲۰۰ پاسکال.",
-    image: "/images/project-electrical-test.jpg",
-  },
-  {
-    id: "industrial-panels",
-    title: "تابلوهای برق، درایو و اتوماسیون",
-    industry: "صنعتی",
-    text: "طراحی و ساخت انواع تابلوهای برق صنعتی، درایو، کنترلی و اتوماسیونی.",
-    image: "/images/project-panels.jpg",
   },
   {
     id: "tampo-print",
@@ -325,20 +299,53 @@ export const projects: ProjectItem[] = [
     title: "مستندات ترنسفرکار فولاد مبارکه",
     industry: "فولاد",
     text: "طراحی نقشه‌های برق و اتوماسیون و تهیه مدارک مهندسی شامل UPS، ارت، پارت‌لیست و کابل‌لیست.",
-    image: "/images/service-panel.jpg",
+    image: "/images/project-mehr.jpg",
   },
   {
     id: "glaze-furnace",
     title: "اتوماسیون کوره لعاب",
     industry: "سرامیک / لعاب",
     text: "طراحی تابلوهای برق و اتوماسیون کوره ۹۰۰ درجه با کاهش تلرانس دمایی تا ۲ درجه.",
-    image: "/images/project-patleh.jpg",
+    image: "/images/project-energy.jpg",
     highlights: [
       "کاهش مصرف گاز",
       "کاهش استهلاک مشعل",
       "کنترل دقیق دما",
     ],
   },
+];
+
+function serviceAsProject(service: ServiceItem): ProjectItem {
+  return {
+    id: `svc-${service.id}`,
+    title: service.title,
+    industry: "حوزه تخصصی",
+    text: service.text,
+    image: service.image,
+    imagePos: service.imagePos,
+    highlights: service.details,
+    featured: service.id === "lab-equipment" || service.id === "automation",
+  };
+}
+
+const caseById = Object.fromEntries(
+  caseProjects.map((item) => [item.id, item]),
+) as Record<string, ProjectItem>;
+
+/** حوزه‌های تخصصی + پروژه‌های اجراشده — هر کارت یک تصویر منحصربه‌فرد، بدون استوک تکراری */
+export const projects: ProjectItem[] = [
+  serviceAsProject(services[0]),
+  serviceAsProject(services[1]),
+  caseById["mehr-bistoon"],
+  serviceAsProject(services[2]),
+  caseById["yaskawa-robots"],
+  serviceAsProject(services[3]),
+  caseById["energy-monitoring"],
+  caseById["textile-cops"],
+  caseById["patleh-roll"],
+  caseById["tampo-print"],
+  caseById["mobarakeh-transfer"],
+  caseById["glaze-furnace"],
 ];
 
 export const aboutValues: ValueItem[] = [
@@ -372,7 +379,7 @@ export const aboutIntroParagraphs = [
   "هدف ما پایداری عملکرد، کاهش توقفات، مستندسازی فنی شفاف و امکان توسعه سیستم در آینده است.",
 ];
 
-/** زمینه‌های فعالیت شرکت — بر اساس رزومه FTG */
+/** زمینه‌های فعالیت شرکت — بر اساس رزومه FTGA */
 export const activityAreas: ActivityArea[] = [
   {
     id: "lab-machines",
@@ -489,4 +496,4 @@ export const contactSubjects = [
   "استعلام تجهیزات",
 ] as const;
 
-export const featuredProducts = products.filter((item) => item.featured);
+export const featuredProjects = projects.filter((item) => item.featured);

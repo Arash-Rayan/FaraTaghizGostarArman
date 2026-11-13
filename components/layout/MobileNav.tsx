@@ -9,36 +9,24 @@ export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <div className="border-t border-white/5 bg-[#0b1426] px-5 py-4 lg:hidden">
-      <div className="flex flex-col gap-1">
-        {navLinks.map((link) => {
-          const isActive =
-            link.href === "/"
-              ? pathname === "/"
-              : pathname.startsWith(link.href);
+    <div className="site-header__mobile">
+      {navLinks.map((link) => {
+        const isActive =
+          link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
 
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "rounded-xl px-3 py-3 text-sm",
-                isActive
-                  ? "bg-white/5 font-semibold text-white"
-                  : "text-slate-300",
-              )}
-            >
-              {link.label}
-            </Link>
-          );
-        })}
-        <Link
-          href="/contact"
-          className="purple-btn mt-2 rounded-full px-5 py-3 text-center text-sm font-semibold text-white"
-        >
-          دریافت قیمت
-        </Link>
-      </div>
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={cn("site-header__mobile-link", isActive && "is-active")}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
+      <Link href="/contact" className="brand-btn site-header__mobile-cta">
+        دریافت قیمت
+      </Link>
     </div>
   );
 }

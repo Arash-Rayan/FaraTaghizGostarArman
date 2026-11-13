@@ -1,77 +1,122 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { Logo } from "@/components/layout/Logo";
+import { ArrowLeft, Mail, Phone } from "lucide-react";
 import { company, navLinks } from "@/data/site";
+import { toTelHref } from "@/lib/phone";
 
 const serviceLinks = [
-  { href: "/services", label: "تابلو برق صنعتی" },
-  { href: "/services", label: "سیستم‌های اتوماسیون" },
-  { href: "/services", label: "ابزار دقیق" },
-  { href: "/products", label: "PLC و HMI" },
+  { href: "/projects", label: "تجهیزات آزمایشگاهی و ماشین مخصوص" },
+  { href: "/projects", label: "طراحی و ساخت تابلو برق" },
+  { href: "/projects", label: "اتوماسیون صنعتی و PLC" },
+  { href: "/projects", label: "ابزار دقیق و شبکه صنعتی" },
+  { href: "/projects", label: "بینایی ماشین و هوش مصنوعی" },
 ];
+
+const persianYear = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
+  year: "numeric",
+}).format(new Date());
 
 export function SiteFooter() {
   return (
-    <footer className="mountain-footer relative mt-8 overflow-hidden border-t border-white/5">
-      <div className="relative z-10 mx-auto grid max-w-[1280px] gap-10 px-5 py-14 lg:grid-cols-4 lg:px-8">
-        <div className="lg:col-span-1">
-          <Logo />
-          <p className="mt-4 max-w-xs text-sm leading-7 text-slate-400">
-            طراحی تابلو برق صنعتی، اتوماسیون، ابزار دقیق و برنامه‌نویسی فرآیند؛
-            از مهندسی تا راه‌اندازی.
-          </p>
-        </div>
+    <footer className="site-footer">
+      <div className="site-footer__accent" aria-hidden />
 
-        <div>
-          <h3 className="mb-4 text-sm font-semibold text-white">دسترسی سریع</h3>
-          <div className="flex flex-col gap-2.5 text-sm text-slate-400">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-white">
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="mb-4 text-sm font-semibold text-white">خدمات</h3>
-          <div className="flex flex-col gap-2.5 text-sm text-slate-400">
-            {serviceLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="hover:text-white">
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="mb-4 text-sm font-semibold text-white">ارتباط</h3>
-          <div className="space-y-3 text-sm text-slate-400">
-            <p className="flex items-start gap-2">
-              <MapPin size={16} className="mt-1 shrink-0 text-violet-300" />
-              {company.address}
+      <div className="site-footer__inner">
+        <section className="site-footer__cta">
+          <div>
+            <p className="site-footer__eyebrow">همکاری با FTGA</p>
+            <h2 className="site-footer__cta-title">پروژه‌ای در ذهن دارید؟</h2>
+            <p className="site-footer__cta-text">
+              از طراحی و ساخت تا برنامه‌نویسی و راه‌اندازی، تیم فنی ما کنار
+              شماست.
             </p>
-            {company.contacts.map((person) => (
-              <p key={person.phone} className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 text-violet-300" />
-                <span>
-                  {person.name}
-                  <span className="block text-slate-500" dir="ltr">
-                    {person.phone}
-                  </span>
-                </span>
-              </p>
-            ))}
-            <p className="flex items-center gap-2">
-              <Mail size={16} className="text-violet-300" />
-              {company.email}
+          </div>
+          <div className="site-footer__cta-actions">
+            <Link href="/contact" className="brand-btn site-footer__cta-btn">
+              ارتباط با ما
+              <ArrowLeft size={16} />
+            </Link>
+            <Link href="/projects" className="site-footer__ghost-btn">
+              مشاهده پروژه‌ها
+            </Link>
+          </div>
+        </section>
+
+        <div className="site-footer__grid">
+          <div className="site-footer__about">
+            <h3 className="site-footer__heading">درباره FTGA</h3>
+            <p className="site-footer__text">
+              {company.nameFa}؛ مهندسی اتوماسیون صنعتی، ساخت ماشین‌آلات و
+              تجهیزات آزمایشگاهی، و توسعه راهکارهای هوشمند با بینایی ماشین و
+              هوش مصنوعی.
             </p>
+          </div>
+
+          <nav aria-label="دسترسی سریع">
+            <h3 className="site-footer__heading">دسترسی سریع</h3>
+            <ul className="site-footer__links">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="حوزه‌های فعالیت">
+            <h3 className="site-footer__heading">حوزه‌های فعالیت</h3>
+            <ul className="site-footer__links">
+              {serviceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="site-footer__contact">
+            <h3 className="site-footer__heading">ارتباط با ما</h3>
+            <img
+              src="/images/logo-full.png"
+              alt={`${company.nameFa} — ${company.nameEn}`}
+              className="site-footer__logo"
+            />
+            <ul className="site-footer__people">
+              {company.contacts.map((person) => (
+                <li key={person.phone} className="site-footer__person">
+                  <div>
+                    <p className="site-footer__person-name">{person.name}</p>
+                    {person.role && (
+                      <p className="site-footer__person-role">{person.role}</p>
+                    )}
+                  </div>
+                  <a
+                    href={toTelHref(person.phone)}
+                    className="site-footer__phone"
+                  >
+                    <Phone size={14} />
+                    <span dir="ltr">{person.phone}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {company.email && (
+              <a href={`mailto:${company.email}`} className="site-footer__email">
+                <Mail size={16} />
+                <span dir="ltr">{company.email}</span>
+              </a>
+            )}
           </div>
         </div>
       </div>
 
-      <div className="relative z-10 border-t border-white/5 py-6 text-center text-sm text-slate-400">
-        شریک شما در اتوماسیون صنعتی
+      <div className="site-footer__bottom">
+        <div className="site-footer__bottom-inner">
+          <span>
+            © {persianYear} {company.nameFa} ({company.nameEn}). تمامی حقوق
+            محفوظ است.
+          </span>
+          <span>شریک شما در اتوماسیون صنعتی</span>
+        </div>
       </div>
     </footer>
   );

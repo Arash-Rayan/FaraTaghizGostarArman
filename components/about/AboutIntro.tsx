@@ -34,11 +34,25 @@ export function AboutIntro() {
               {company.contacts.map((person) => (
                 <div key={person.phone}>
                   {person.name}
+                  {person.role && (
+                    <span className="mt-0.5 block text-xs text-violet-200/80">
+                      {person.role}
+                    </span>
+                  )}
                   <span className="mt-0.5 block text-slate-400" dir="ltr">
                     {person.phone}
                   </span>
                 </div>
               ))}
+              {company.email && (
+                <a
+                  href={`mailto:${company.email}`}
+                  className="mt-3 block text-slate-300 hover:text-white"
+                  dir="ltr"
+                >
+                  {company.email}
+                </a>
+              )}
             </dd>
           </div>
         </dl>

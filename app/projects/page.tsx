@@ -15,12 +15,12 @@ export default function ProjectsPage() {
     <Container className="py-14">
       <PageIntro
         eyebrow="پروژه‌ها"
-        title="معرفی پروژه‌ها و دستاوردها در یک نگاه"
-        description="از تجهیزات آزمایشگاهی و اتوماسیون RO تا ربات یاسکاوا، تابلوهای صنعتی، پایش انرژی و پروژه‌های فولاد مبارکه."
+        title="حوزه‌های تخصصی، پروژه‌های اجراشده و راه‌حل‌ها"
+        description="همهٔ کارهای FTGA در یک جا: از طراحی تجهیزات آزمایشگاهی و تابلو برق تا اتوماسیون، ابزار دقیق، PLC، درایو و پروژه‌های واقعی در صنایع مختلف."
       />
       <ProjectGrid />
       <div className="mt-12 flex justify-center">
-        <Button href="/contact">مشاوره پروژه</Button>
+        <Button href="/contact">ارتباط با ما</Button>
       </div>
     </Container>
   );

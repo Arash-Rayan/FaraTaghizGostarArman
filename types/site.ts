@@ -25,9 +25,7 @@ export interface CompanyInfo {
   nameEn: string;
   tagline: string;
   phone: string;
-  mobile: string;
-  email: string;
-  address: string;
+  email?: string;
   contacts: ContactPerson[];
 }
 
@@ -76,6 +74,7 @@ export interface ProjectItem {
   image: string;
   imagePos?: string;
   highlights?: string[];
+  featured?: boolean;
 }
 
 export interface ValueItem {

@@ -4,33 +4,35 @@ import { Container } from "@/components/ui/Container";
 import { CoverFrame } from "@/components/ui/CoverFrame";
 import { CoverImage } from "@/components/ui/CoverImage";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { featuredProducts } from "@/data/site";
+import { featuredProjects } from "@/data/site";
 
 export function FeaturedProducts() {
+  const items = featuredProjects.slice(0, 4);
+
   return (
     <Container as="section" className="pb-8">
       <div className="grid items-center gap-8 rounded-[28px] border border-white/6 bg-[#0b1528]/70 p-6 lg:grid-cols-[0.78fr_1.22fr] lg:p-8">
         <div>
           <p className="mb-3 text-[12px] font-semibold tracking-[0.18em] text-cyan-200/90">
-            تجهیزات و راه‌حل‌ها
+            نمونه کارها
           </p>
           <h2 className="text-3xl font-extrabold leading-snug text-white">
-            تابلو، PLC، HMI
+            پروژه‌ها و راه‌حل‌ها
             <br />
-            و درایو صنعتی
+            در یک نگاه
           </h2>
           <Link
-            href="/products"
+            href="/projects"
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm text-white hover:bg-white/5"
           >
-            مشاهده محصولات
+            مشاهده همه پروژه‌ها
             <ArrowLeft size={15} />
           </Link>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          {featuredProducts.map((product) => (
-            <Link key={product.id} href="/products">
+          {items.map((project) => (
+            <Link key={project.id} href="/projects">
               <GlassCard className="flex items-center gap-4 rounded-2xl p-3.5 transition hover:border-violet-400/30">
                 <CoverFrame
                   height={78}
@@ -38,18 +40,19 @@ export function FeaturedProducts() {
                   style={{ width: 96, flexShrink: 0, borderRadius: 12 }}
                 >
                   <CoverImage
-                    src={product.image}
-                    alt={product.name}
-                    objectPosition={product.imagePos ?? "center"}
+                    src={project.image}
+                    alt={project.title}
+                    objectPosition={project.imagePos ?? "center"}
                     sizes="96px"
                   />
                 </CoverFrame>
                 <div>
+                  <p className="text-[11px] text-cyan-200/80">{project.industry}</p>
                   <h3 className="text-sm font-semibold text-white">
-                    {product.name}
+                    {project.title}
                   </h3>
-                  <p className="mt-1 text-[12px] leading-6 text-slate-400">
-                    {product.text}
+                  <p className="mt-1 line-clamp-2 text-[12px] leading-6 text-slate-400">
+                    {project.text}
                   </p>
                 </div>
               </GlassCard>
